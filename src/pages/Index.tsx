@@ -27,36 +27,69 @@ const Index = () => {
       title: 'Поддельные ссылки',
       icon: 'Link',
       description: 'Злоумышленники отправляют ссылки, похожие на настоящие, но ведущие на фишинговые сайты',
-      example: 'gooogle.com вместо google.com',
+      details: [
+        'Замена латинских букв на похожие символы (gооgle.com с кириллическими "о")',
+        'Добавление лишних букв или дефисов (go-ogle.com, gooogle.com)',
+        'Использование неправильных доменов (.net вместо .com)',
+        'Короткие ссылки, скрывающие настоящий адрес (bit.ly, clck.ru)'
+      ],
+      howToProtect: 'Наводите курсор на ссылку перед кликом, проверяйте полный URL в нижней части браузера',
       danger: 'high',
     },
     {
       title: 'Поддельные сайты',
       icon: 'Globe',
       description: 'Копии популярных сайтов, созданные для кражи данных пользователей',
-      example: 'Копия банковского сайта с измененным адресом',
+      details: [
+        'Точная визуальная копия банка или популярного сервиса',
+        'Похожий, но не идентичный адрес сайта',
+        'Отсутствие SSL-сертификата (нет замка в адресной строке)',
+        'Поддельные страницы авторизации известных сервисов'
+      ],
+      howToProtect: 'Проверяйте URL, ищите зеленый замок https://, добавляйте важные сайты в закладки',
       danger: 'high',
     },
     {
       title: 'Мошенничество в Steam',
       icon: 'Gamepad2',
-      description: 'Фальшивые предложения о выигрыше скинов или бесплатных игр',
-      example: 'Сообщения о выигрыше с требованием войти на поддельный сайт',
-      danger: 'medium',
+      description: 'Фальшивые предложения о выигрыше скинов, вещей или бесплатных игр',
+      details: [
+        'Сообщения от "модераторов Steam" о выигрыше',
+        'Просьбы войти на сторонний сайт для получения приза',
+        'Боты с предложениями обмена вещами на выгодных условиях',
+        'Фишинговые сайты steаmcommunity.com (с кириллической "а")',
+        'Подделка сайтов популярных трейдинг-площадок'
+      ],
+      howToProtect: 'Steam никогда не просит логин через сторонние сайты. Используйте Steam Guard (2FA)',
+      danger: 'high',
     },
     {
       title: 'Мошенничество в VK',
       icon: 'Users',
-      description: 'Взлом аккаунтов друзей с просьбами о переводе денег',
-      example: 'Сообщение "Привет, нужна срочная помощь, переведи деньги"',
+      description: 'Взлом аккаунтов друзей с просьбами о переводе денег и фейковые страницы',
+      details: [
+        'Сообщения от друзей: "Привет, нужна срочная помощь, переведи деньги"',
+        'Фишинговые опросы и конкурсы с требованием ввести данные',
+        'Поддельные страницы знаменитостей с розыгрышами',
+        'Боты в комментариях с обещаниями заработка',
+        'Паблики с "бесплатными" товарами за репост'
+      ],
+      howToProtect: 'Проверяйте аккаунт друга через звонок, не переходите по ссылкам из непроверенных пабликов',
       danger: 'high',
     },
     {
       title: 'Обман в Telegram',
       icon: 'MessageCircle',
-      description: 'Фейковые инвестиционные каналы и боты-мошенники',
-      example: 'Обещания быстрого заработка или гарантированной прибыли',
-      danger: 'medium',
+      description: 'Фейковые инвестиционные каналы, боты-мошенники и поддельные аккаунты',
+      details: [
+        'Каналы с "гарантированным заработком" на крипте и форексе',
+        'Боты, требующие предоплату за услуги',
+        'Поддельные аккаунты известных людей с просьбами о помощи',
+        'Пирамиды и финансовые схемы под видом инвестиций',
+        'Фейковые магазины с оплатой без гарантий'
+      ],
+      howToProtect: 'Проверяйте наличие галочки верификации, не доверяйте обещаниям быстрой прибыли',
+      danger: 'high',
     },
   ];
 
@@ -85,6 +118,78 @@ const Index = () => {
       description: 'Регулярно обновляйте браузеры, ОС и антивирусы',
       tips: ['Включите автообновления', 'Используйте лицензионное ПО', 'Установите антивирус'],
     },
+  ];
+
+  const usefulResources = [
+    {
+      title: 'VirusTotal',
+      description: 'Проверка файлов и ссылок на вирусы',
+      url: 'virustotal.com',
+      icon: 'ScanSearch',
+      category: 'Проверка ссылок'
+    },
+    {
+      title: 'Google Safe Browsing',
+      description: 'Проверка сайта на безопасность',
+      url: 'transparencyreport.google.com/safe-browsing',
+      icon: 'Shield',
+      category: 'Проверка сайтов'
+    },
+    {
+      title: 'Роскомнадзор - Киберугрозы',
+      description: 'Официальная информация о кибербезопасности',
+      url: 'rkn.gov.ru',
+      icon: 'Info',
+      category: 'Информация'
+    },
+    {
+      title: 'Мошенники.нет',
+      description: 'База мошеннических сайтов и номеров',
+      url: 'moshenniki.net',
+      icon: 'Database',
+      category: 'База данных'
+    },
+    {
+      title: 'CheckShortURL',
+      description: 'Раскрытие коротких ссылок',
+      url: 'checkshorturl.com',
+      icon: 'Link',
+      category: 'Проверка ссылок'
+    },
+    {
+      title: 'URLVoid',
+      description: 'Сканирование репутации сайта',
+      url: 'urlvoid.com',
+      icon: 'ScanLine',
+      category: 'Проверка сайтов'
+    }
+  ];
+
+  const suspiciousLinkExamples = [
+    {
+      url: 'https://gooogle.com/login',
+      reason: 'Лишняя буква "о" в домене',
+      isLegit: false,
+      correctUrl: 'https://google.com'
+    },
+    {
+      url: 'http://sberbank-online.ru',
+      reason: 'Отсутствие https:// и неофициальный домен',
+      isLegit: false,
+      correctUrl: 'https://sberbank.ru'
+    },
+    {
+      url: 'https://vk.com/login',
+      reason: 'Официальный адрес VK с https://',
+      isLegit: true,
+      correctUrl: ''
+    },
+    {
+      url: 'https://steamcommunіty.com',
+      reason: 'Буква "і" (кириллическая) вместо "i" (латинской)',
+      isLegit: false,
+      correctUrl: 'https://steamcommunity.com'
+    }
   ];
 
   const practicalTips = [
@@ -196,15 +301,10 @@ const Index = () => {
     setScore(0);
   };
 
-  const getDangerColor = (level: string) => {
-    switch (level) {
-      case 'high':
-        return 'bg-red-100 text-red-700 border-red-200';
-      case 'medium':
-        return 'bg-orange-100 text-orange-700 border-orange-200';
-      default:
-        return 'bg-yellow-100 text-yellow-700 border-yellow-200';
-    }
+  const [selectedExample, setSelectedExample] = useState<number | null>(null);
+
+  const getDangerColor = () => {
+    return 'bg-red-100 text-red-700 border-red-300';
   };
 
   return (
@@ -393,22 +493,44 @@ const Index = () => {
             {fraudExamples.map((example, index) => (
               <Card
                 key={index}
-                className={`border-2 hover:shadow-xl transition-all hover:-translate-y-1 ${getDangerColor(
-                  example.danger
-                )}`}
+                className="border-2 border-red-300 bg-red-50 hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
+                onClick={() => setSelectedExample(selectedExample === index ? null : index)}
               >
                 <CardHeader>
                   <div className="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-4 shadow-sm">
                     <Icon name={example.icon as any} className="text-red-600" size={28} />
                   </div>
-                  <CardTitle className="text-xl">{example.title}</CardTitle>
-                  <CardDescription className="text-gray-700">{example.description}</CardDescription>
+                  <CardTitle className="text-xl text-red-800">{example.title}</CardTitle>
+                  <CardDescription className="text-red-700">{example.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-white/50 rounded-lg p-3 border border-gray-300">
-                    <p className="text-sm font-medium text-gray-800 mb-1">Пример:</p>
-                    <p className="text-sm text-gray-700">{example.example}</p>
-                  </div>
+                  {selectedExample === index && (
+                    <div className="mb-4 space-y-3">
+                      <div className="bg-white rounded-lg p-3 border border-red-200">
+                        <p className="text-sm font-bold text-red-800 mb-2">Детали мошенничества:</p>
+                        <ul className="space-y-2">
+                          {example.details?.map((detail, idx) => (
+                            <li key={idx} className="flex gap-2 text-sm text-gray-700">
+                              <Icon name="AlertCircle" className="text-red-600 flex-shrink-0 mt-0.5" size={16} />
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="bg-green-50 rounded-lg p-3 border border-green-300">
+                        <p className="text-sm font-bold text-green-800 mb-1">Как защититься:</p>
+                        <p className="text-sm text-gray-700">{example.howToProtect}</p>
+                      </div>
+                    </div>
+                  )}
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full border-red-300 text-red-700 hover:bg-red-100"
+                  >
+                    <Icon name={selectedExample === index ? "ChevronUp" : "ChevronDown"} size={16} className="mr-2" />
+                    {selectedExample === index ? 'Скрыть детали' : 'Показать детали'}
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -467,8 +589,9 @@ const Index = () => {
           </div>
 
           <Tabs defaultValue="methods" className="mb-12">
-            <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto">
+            <TabsList className="grid w-full grid-cols-3 max-w-3xl mx-auto">
               <TabsTrigger value="methods">Методы защиты</TabsTrigger>
+              <TabsTrigger value="links">Распознавание ссылок</TabsTrigger>
               <TabsTrigger value="tips">Практические советы</TabsTrigger>
             </TabsList>
 
@@ -495,6 +618,90 @@ const Index = () => {
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="links" className="mt-8">
+              <div className="space-y-6">
+                <Card className="border-2 border-blue-200 bg-blue-50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-blue-800">
+                      <Icon name="Eye" size={24} />
+                      Как распознать подозрительные ссылки
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-700 mb-4">Научитесь отличать безопасные ссылки от фишинговых. Вот примеры:</p>
+                    <div className="space-y-4">
+                      {suspiciousLinkExamples.map((link, index) => (
+                        <div 
+                          key={index} 
+                          className={`p-4 rounded-lg border-2 ${
+                            link.isLegit ? 'bg-green-50 border-green-300' : 'bg-red-50 border-red-300'
+                          }`}
+                        >
+                          <div className="flex items-start gap-3 mb-2">
+                            <Icon 
+                              name={link.isLegit ? "CheckCircle2" : "XCircle"} 
+                              className={link.isLegit ? "text-green-600" : "text-red-600"}
+                              size={24}
+                            />
+                            <div className="flex-1">
+                              <p className="font-mono text-sm mb-2 break-all font-semibold">{link.url}</p>
+                              <p className="text-sm text-gray-700 mb-2">
+                                <strong>Причина:</strong> {link.reason}
+                              </p>
+                              {!link.isLegit && link.correctUrl && (
+                                <p className="text-sm text-green-700">
+                                  <strong>Правильный адрес:</strong> {link.correctUrl}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-2 border-purple-200 bg-purple-50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-purple-800">
+                      <Icon name="Lightbulb" size={24} />
+                      Полезные инструменты для проверки
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {usefulResources.map((resource, index) => (
+                        <div 
+                          key={index}
+                          className="bg-white p-4 rounded-lg border border-purple-200 hover:shadow-md transition-shadow"
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                              <Icon name={resource.icon as any} className="text-purple-600" size={20} />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-bold text-gray-900 mb-1">{resource.title}</h4>
+                              <p className="text-xs text-purple-600 mb-2">{resource.category}</p>
+                              <p className="text-sm text-gray-600 mb-2">{resource.description}</p>
+                              <a 
+                                href={`https://${resource.url}`} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="text-sm text-blue-600 hover:underline flex items-center gap-1"
+                              >
+                                {resource.url}
+                                <Icon name="ExternalLink" size={14} />
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </TabsContent>
 
